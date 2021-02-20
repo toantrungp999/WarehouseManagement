@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="ManagerWarehouses.GUI.UCWarehousingImport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ManagerWarehouses.GUI"
+             mc:Ignorable="d" 
+              d:DesignHeight="640" d:DesignWidth="850">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Thêm mới, chỉnh sửa mẫu giày:" Margin="20,40,0,0" ></TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Mẫu giày:" Margin="20,90,0,0" ></TextBlock>
+        <ComboBox Height="23" Width="140" Name="_cbModel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,90,0,0"></ComboBox>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Màu:" Margin="265,90,0,0" ></TextBlock>
+        <ComboBox Height="23" Width="100" Name="_cbColor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,90,0,0"></ComboBox>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Cỡ:" Margin="445,90,0,0" ></TextBlock>
+        <ComboBox Height="23" Width="100" Name="_cbSize" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="480,90,0,0"></ComboBox>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Số lượng:" Margin="610,90,0,0" ></TextBlock>
+        <TextBox MaxLength="5" PreviewTextInput="NumberValidationTextBox" Height="23" Width="100" Name="_txtAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="680,90,0,0"></TextBox>
+        <Button Name="_btnAddNew"  Height="23" Width="180" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="335,145,335,0" Content="Thêm vào danh sách" Click="_btnAddNew_Click"></Button>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Danh sách các mẫu giày:" Margin="20,185,0,0" ></TextBlock>
+        <DataGrid  HorizontalScrollBarVisibility="Disabled" Margin="0,220,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" AutoGenerateColumns="False" Name="_dataGridListShoes" Height="300" Width="650" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ModelShoes_ID}" Width="100" Header="Mã mẫu" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding NameShoese}" Width="170" Header="Tên mẫu" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Color}" Width="100" Header="Màu" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Size}" Width="100" Header="Cỡ" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Amount}" Width="100" Header="Số lượng" IsReadOnly="True"/>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Delete">Xóa</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Height="23" Text="Ghi chú:" Margin="100,560,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+        <TextBox Name="_txtContent" Height="40" Width="360" Margin="160,550,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+        <Button Name="_btnAddWarehousing"  Height="23" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="560,560,0,0" Content="Thêm vào kho" Click="_btnAddWarehousing_Click"></Button>
+    </Grid>
+</UserControl>

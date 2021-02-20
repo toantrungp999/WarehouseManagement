@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="ManagerWarehouses.GUI.UCManagerWarehousingListImport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ManagerWarehouses.GUI"
+             mc:Ignorable="d" 
+               d:DesignHeight="640" d:DesignWidth="850">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <DataGrid HorizontalScrollBarVisibility="Disabled" Margin="100,40,100,0" HorizontalAlignment="Center" VerticalAlignment="Top" AutoGenerateColumns="False" Name="_dataGridListImport" Height="500" Width="650" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Detail">Xem chi tiết</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding Import_ID}" Width="100" Header="Mã nhật ký" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Employees.FullName}" Width="150" Header="Người nhập" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding ImportDate}" Width="100" Header="Ngày nhập" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Note}" Width="200" Header="Ghi chú" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

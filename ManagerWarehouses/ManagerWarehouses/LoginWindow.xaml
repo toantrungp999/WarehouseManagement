@@ -1,0 +1,27 @@
+﻿<Window x:Class="ManagerWarehouses.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerWarehouses"
+        mc:Ignorable="d"
+       Title="Login" Height="350" Width="500">
+    <Grid>
+        <TextBlock Height="25" HorizontalAlignment="Center" Margin="10,10,0,0" Name="LoginHeading" Text="Login" VerticalAlignment="Top" FontSize="17" FontStretch="ExtraCondensed" ></TextBlock>
+        <TextBlock Height="50" HorizontalAlignment="Left" Margin="24,58,0,0" Name="textBlockHeading" VerticalAlignment="Top" FontSize="12" FontStyle="Italic" Padding="5" >
+            Note: Please login here to view the features of this site. If you are new on this site then <LineBreak />
+             please click on
+            <TextBlock>
+                <Hyperlink Click="_btnRegisterClick" FontSize="14" FontStyle="Normal">Register</Hyperlink>
+            </TextBlock>
+            Button
+        </TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="70,130,0,0" x:Name="tb_user_name" Text="User Name:" VerticalAlignment="Top" Width="67" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="70,180,0,0" x:Name="tb_password" Text="Password" VerticalAlignment="Top" Width="77" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="142,128,0,0" x:Name="_txtUserName" VerticalAlignment="Top" Width="260" />
+        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="142,178,0,0" x:Name="_txtPassword" VerticalAlignment="Top" Width="260" />
+        <CheckBox Content="Remember me?" Height="23" HorizontalAlignment="Left" Margin="132,224,0,0" Name="_cbRememberme" VerticalAlignment="Top"/>
+        <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="288,221,0,0" Name="button1" VerticalAlignment="Top" Width="104" Click="_btnLogin_Click" />
+        <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="118,253,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
+    </Grid>
+</Window>

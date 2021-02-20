@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyShoeStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Companny_ID" />
+    </Key>
+    <Property Name="Companny_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="DetailsExport">
+    <Key>
+      <PropertyRef Name="Export_ID" />
+      <PropertyRef Name="Shoes_ID" />
+    </Key>
+    <Property Name="Export_ID" Type="bigint" Nullable="false" />
+    <Property Name="Shoes_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetailsImport">
+    <Key>
+      <PropertyRef Name="Import_ID" />
+      <PropertyRef Name="Shoes_ID" />
+    </Key>
+    <Property Name="Import_ID" Type="bigint" Nullable="false" />
+    <Property Name="Shoes_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="255" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="PersonalCard" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sex" Type="tinyint" />
+    <Property Name="Parts" Type="nvarchar" MaxLength="50" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Export">
+    <Key>
+      <PropertyRef Name="Export_ID" />
+    </Key>
+    <Property Name="Export_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OutBy" Type="bigint" Nullable="false" />
+    <Property Name="OutDate" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Import_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Import">
+    <Key>
+      <PropertyRef Name="Import_ID" />
+    </Key>
+    <Property Name="Import_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImportBy" Type="bigint" Nullable="false" />
+    <Property Name="ImportDate" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Done" Type="tinyint" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Log_ID" />
+    </Key>
+    <Property Name="Log_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Shoes_ID" Type="bigint" Nullable="false" />
+    <Property Name="Amout" Type="int" Nullable="false" />
+    <Property Name="Action" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Action_By" Type="bigint" Nullable="false" />
+    <Property Name="Action_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ModelShoes">
+    <Key>
+      <PropertyRef Name="ModelShoes_ID" />
+    </Key>
+    <Property Name="ModelShoes_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameShoese" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shoes">
+    <Key>
+      <PropertyRef Name="Shoes_ID" />
+    </Key>
+    <Property Name="Shoes_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModelShoes_ID" Type="bigint" Nullable="false" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Size" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TypeShoe">
+    <Key>
+      <PropertyRef Name="Type_ID" />
+    </Key>
+    <Property Name="Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DetailsExport_Export">
+    <End Role="Export" Type="Self.Export" Multiplicity="1" />
+    <End Role="DetailsExport" Type="Self.DetailsExport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Export">
+        <PropertyRef Name="Export_ID" />
+      </Principal>
+      <Dependent Role="DetailsExport">
+        <PropertyRef Name="Export_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetailsExport_Shoes">
+    <End Role="Shoes" Type="Self.Shoes" Multiplicity="1" />
+    <End Role="DetailsExport" Type="Self.DetailsExport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoes">
+        <PropertyRef Name="Shoes_ID" />
+      </Principal>
+      <Dependent Role="DetailsExport">
+        <PropertyRef Name="Shoes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetailsLog_Log">
+    <End Role="Import" Type="Self.Import" Multiplicity="1" />
+    <End Role="DetailsImport" Type="Self.DetailsImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Import">
+        <PropertyRef Name="Import_ID" />
+      </Principal>
+      <Dependent Role="DetailsImport">
+        <PropertyRef Name="Import_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetailsLog_Shoes">
+    <End Role="Shoes" Type="Self.Shoes" Multiplicity="1" />
+    <End Role="DetailsImport" Type="Self.DetailsImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoes">
+        <PropertyRef Name="Shoes_ID" />
+      </Principal>
+      <Dependent Role="DetailsImport">
+        <PropertyRef Name="Shoes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Export_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Export" Type="Self.Export" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Export">
+        <PropertyRef Name="OutBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Export_Import">
+    <End Role="Import" Type="Self.Import" Multiplicity="1" />
+    <End Role="Export" Type="Self.Export" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Import">
+        <PropertyRef Name="Import_ID" />
+      </Principal>
+      <Dependent Role="Export">
+        <PropertyRef Name="Import_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Import" Type="Self.Import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Import">
+        <PropertyRef Name="ImportBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Employees1">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="Action_By" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Shoes">
+    <End Role="Shoes" Type="Self.Shoes" Multiplicity="1" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shoes">
+        <PropertyRef Name="Shoes_ID" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="Shoes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModelShoes_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="ModelShoes" Type="Self.ModelShoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Companny_ID" />
+      </Principal>
+      <Dependent Role="ModelShoes">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModelShoes_TypeShoe">
+    <End Role="TypeShoe" Type="Self.TypeShoe" Multiplicity="1" />
+    <End Role="ModelShoes" Type="Self.ModelShoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeShoe">
+        <PropertyRef Name="Type_ID" />
+      </Principal>
+      <Dependent Role="ModelShoes">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shoes_ModelShoes">
+    <End Role="ModelShoes" Type="Self.ModelShoes" Multiplicity="1" />
+    <End Role="Shoes" Type="Self.Shoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModelShoes">
+        <PropertyRef Name="ModelShoes_ID" />
+      </Principal>
+      <Dependent Role="Shoes">
+        <PropertyRef Name="ModelShoes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyShoeStoreModelStoreContainer">
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailsExport" EntityType="Self.DetailsExport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailsImport" EntityType="Self.DetailsImport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Export" EntityType="Self.Export" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Import" EntityType="Self.Import" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModelShoes" EntityType="Self.ModelShoes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shoes" EntityType="Self.Shoes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeShoe" EntityType="Self.TypeShoe" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DetailsExport_Export" Association="Self.FK_DetailsExport_Export">
+      <End Role="Export" EntitySet="Export" />
+      <End Role="DetailsExport" EntitySet="DetailsExport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetailsExport_Shoes" Association="Self.FK_DetailsExport_Shoes">
+      <End Role="Shoes" EntitySet="Shoes" />
+      <End Role="DetailsExport" EntitySet="DetailsExport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetailsLog_Log" Association="Self.FK_DetailsLog_Log">
+      <End Role="Import" EntitySet="Import" />
+      <End Role="DetailsImport" EntitySet="DetailsImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetailsLog_Shoes" Association="Self.FK_DetailsLog_Shoes">
+      <End Role="Shoes" EntitySet="Shoes" />
+      <End Role="DetailsImport" EntitySet="DetailsImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Export_Employees" Association="Self.FK_Export_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Export" EntitySet="Export" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Export_Import" Association="Self.FK_Export_Import">
+      <End Role="Import" EntitySet="Import" />
+      <End Role="Export" EntitySet="Export" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Employees" Association="Self.FK_Log_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Import" EntitySet="Import" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Employees1" Association="Self.FK_Log_Employees1">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Log" EntitySet="Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Shoes" Association="Self.FK_Log_Shoes">
+      <End Role="Shoes" EntitySet="Shoes" />
+      <End Role="Log" EntitySet="Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModelShoes_Company" Association="Self.FK_ModelShoes_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="ModelShoes" EntitySet="ModelShoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModelShoes_TypeShoe" Association="Self.FK_ModelShoes_TypeShoe">
+      <End Role="TypeShoe" EntitySet="TypeShoe" />
+      <End Role="ModelShoes" EntitySet="ModelShoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shoes_ModelShoes" Association="Self.FK_Shoes_ModelShoes">
+      <End Role="ModelShoes" EntitySet="ModelShoes" />
+      <End Role="Shoes" EntitySet="Shoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

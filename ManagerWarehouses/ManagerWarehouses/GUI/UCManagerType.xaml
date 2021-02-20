@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ManagerWarehouses.GUI.UCManagerType"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ManagerWarehouses.GUI"
+             mc:Ignorable="d" 
+              d:DesignHeight="640" d:DesignWidth="850">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <TextBlock Height="32" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0"  Text="Quản lý loại giày" FontSize="24" FontStretch="ExtraCondensed" ></TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Thêm mới, chỉnh sửa loại giày:" Margin="20,70,0,0" ></TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Loại giày:" Margin="240,120,0,0" ></TextBlock>
+        <TextBox Height="23" Width="250" Name="_txtName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,120,0,0"></TextBox>
+        <Button Name="_btnAddNew"  Height="23" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,180,0,0" Content="Thêm mới loại" Click="_btnAddNewModel_Click"></Button>
+        <Button  Name="_btnUpdate"  Height="23" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="470,180,0,0" Content="Cập nhật loại" Click="_btnUpdateModel_Click"></Button>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Danh sách các loại giày:" Margin="20,210,0,0" ></TextBlock>
+        <DataGrid  HorizontalScrollBarVisibility="Disabled" Margin="200,250,195,0" HorizontalAlignment="Center" VerticalAlignment="Top" AutoGenerateColumns="False" Name="_dataGridTypeShoes" Height="300" Width="455" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Type_ID}" Width="100" Header="Mã loại" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding TypeName}" Width="250" Header="Tên loại" IsReadOnly="True"/>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Delete">Xóa</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>
+

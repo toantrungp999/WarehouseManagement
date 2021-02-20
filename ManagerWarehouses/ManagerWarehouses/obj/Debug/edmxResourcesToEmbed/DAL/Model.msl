@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyShoeStoreModelStoreContainer" CdmEntityContainer="MyShoeStoreEntities">
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="MyShoeStoreModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Companny_ID" ColumnName="Companny_ID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="MyShoeStoreModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PersonalCard" ColumnName="PersonalCard" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Parts" ColumnName="Parts" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Export">
+      <EntityTypeMapping TypeName="MyShoeStoreModel.Export">
+        <MappingFragment StoreEntitySet="Export">
+          <ScalarProperty Name="Export_ID" ColumnName="Export_ID" />
+          <ScalarProperty Name="OutBy" ColumnName="OutBy" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="Import_ID" ColumnName="Import_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Import">
+      <EntityTypeMapping TypeName="MyShoeStoreModel.Import">
+        <MappingFragment StoreEntitySet="Import">
+          <ScalarProperty Name="Import_ID" ColumnName="Import_ID" />
+          <ScalarProperty Name="ImportBy" ColumnName="ImportBy" />
+          <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Done" ColumnName="Done" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log">
+      <EntityTypeMapping TypeName="MyShoeStoreModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="Log_ID" ColumnName="Log_ID" />
+          <ScalarProperty Name="Shoes_ID" ColumnName="Shoes_ID" />
+          <ScalarProperty Name="Amout" ColumnName="Amout" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Action_By" ColumnName="Action_By" />
+          <ScalarProperty Name="Action_Date" ColumnName="Action_Date" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelShoes">
+      <EntityTypeMapping TypeName="MyShoeStoreModel.ModelShoes">
+        <MappingFragment StoreEntitySet="ModelShoes">
+          <ScalarProperty Name="ModelShoes_ID" ColumnName="ModelShoes_ID" />
+          <ScalarProperty Name="NameShoese" ColumnName="NameShoese" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shoes">
+      <EntityTypeMapping TypeName="MyShoeStoreModel.Shoes">
+        <MappingFragment StoreEntitySet="Shoes">
+          <ScalarProperty Name="Shoes_ID" ColumnName="Shoes_ID" />
+          <ScalarProperty Name="ModelShoes_ID" ColumnName="ModelShoes_ID" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MyShoeStoreModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeShoe">
+      <EntityTypeMapping TypeName="MyShoeStoreModel.TypeShoe">
+        <MappingFragment StoreEntitySet="TypeShoe">
+          <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DetailsExport" TypeName="MyShoeStoreModel.DetailsExport" StoreEntitySet="DetailsExport">
+      <EndProperty Name="Export">
+        <ScalarProperty Name="Export_ID" ColumnName="Export_ID" />
+      </EndProperty>
+      <EndProperty Name="Shoes">
+        <ScalarProperty Name="Shoes_ID" ColumnName="Shoes_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DetailsImport" TypeName="MyShoeStoreModel.DetailsImport" StoreEntitySet="DetailsImport">
+      <EndProperty Name="Import">
+        <ScalarProperty Name="Import_ID" ColumnName="Import_ID" />
+      </EndProperty>
+      <EndProperty Name="Shoes">
+        <ScalarProperty Name="Shoes_ID" ColumnName="Shoes_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

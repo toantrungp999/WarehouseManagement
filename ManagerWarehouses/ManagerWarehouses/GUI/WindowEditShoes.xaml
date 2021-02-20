@@ -1,0 +1,21 @@
+﻿<Window x:Class="ManagerWarehouses.GUI.WindowEditShoes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerWarehouses.GUI"
+        mc:Ignorable="d"
+        Title="Chỉnh sửa hàng hóa trong kho" Height="200" Width="250" ResizeMode="NoResize" WindowStyle="None">
+    <Grid Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}">
+        <TextBlock Margin="0,20,0,0"  VerticalAlignment="Top" HorizontalAlignment="Center" Text="Chinh sửa số lượng giày"></TextBlock>
+        <TextBlock Height="23" Margin="40,67,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" Text="Số lượng:"></TextBlock>
+        <StackPanel Height="23" Margin="100,65,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+            <TextBox x:Name="txtNum" x:FieldModifier="private"  Width="25" Text="0"/>
+            <Button x:Name="cmdDown" x:FieldModifier="private"  Content="-" Width="20" Click="cmdDown_Click" />
+        </StackPanel>
+        <TextBlock Height="23" Margin="40,110,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" Text="Ghi chú:"></TextBlock>
+        <TextBox Name="_txtNote"  Height="23"   Margin="100,110,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"   Width="110" Text="0"/>
+        <Button Width="50" Name="_btnSave" Margin="60,150,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Lưu" Click="_btnSave_Click"></Button>
+        <Button  Width="50" Name="_btnExit" Margin="140,150,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Thoát" Click="_btnExit_Click"></Button>
+    </Grid>
+</Window>

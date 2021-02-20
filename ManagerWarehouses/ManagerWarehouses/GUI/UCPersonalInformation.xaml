@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="ManagerWarehouses.GUI.UCPersonalInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ManagerWarehouses.GUI"
+             mc:Ignorable="d" 
+            d:DesignHeight="640" d:DesignWidth="850">
+    <Grid>
+        <TextBlock Height="30" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="275,20,275,0" Name="LoginHeading" Text="Chỉnh sửa thông tin cá nhân" FontSize="24" FontStretch="ExtraCondensed" ></TextBlock>
+        <TextBlock Height="23" Margin="225,150,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">Họ và tên</TextBlock>
+        <TextBlock Height="23" Margin="225,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">CMND</TextBlock>
+        <TextBlock Height="23"  Margin="225,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">Số điện thoại</TextBlock>
+        <TextBlock Height="23"  Margin="225,300,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">Giới tính</TextBlock>
+        <TextBlock Height="23"  Margin="225,350,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">Bộ phận</TextBlock>
+        <TextBox Name="_txtFullName" Width="250" Height="23"  Margin="320,150,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+        <TextBox Name="_txtPersonalCard" Width="250" Height="23"  Margin="320,200,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+        <TextBox Name="_txtPhoneNumber" Width="250" Height="23"  Margin="320,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+        <ComboBox Name="_CbSex" Width="250" Height="23"  Margin="320,300,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></ComboBox>
+        <TextBox IsEnabled="False" Name="_txtParts" Width="250" Height="23"  Margin="320,350,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+        <TextBlock Margin="420,400,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <Hyperlink Name="_editPassword" FontSize="14" FontStyle="Normal" Click="_editPassword_Click">Chỉnh sửa mật khẩu</Hyperlink>
+        </TextBlock>
+        <Button Width="100" Height="23"  Margin="450,450,0,0" Name="_btnSavaInformation"  VerticalAlignment="Top" HorizontalAlignment="Left" Content="Lưu thông tin" Click="_btnSavaInformation_Click"></Button>
+    </Grid>
+</UserControl>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9bdc3906045349708bb1bd8658d381c1" Name="Diagram1">
+        <EntityTypeShape EntityType="MyShoeStoreModel.Company" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyShoeStoreModel.Employees" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyShoeStoreModel.Export" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyShoeStoreModel.Import" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyShoeStoreModel.Log" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyShoeStoreModel.ModelShoes" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyShoeStoreModel.Shoes" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyShoeStoreModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyShoeStoreModel.TypeShoe" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="MyShoeStoreModel.FK_ModelShoes_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="MyShoeStoreModel.FK_Export_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MyShoeStoreModel.FK_Log_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MyShoeStoreModel.FK_Log_Employees1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyShoeStoreModel.FK_Export_Import" ManuallyRouted="false" />
+        <AssociationConnector Association="MyShoeStoreModel.FK_Log_Shoes" ManuallyRouted="false" />
+        <AssociationConnector Association="MyShoeStoreModel.FK_ModelShoes_TypeShoe" ManuallyRouted="false" />
+        <AssociationConnector Association="MyShoeStoreModel.FK_Shoes_ModelShoes" ManuallyRouted="false" />
+        <AssociationConnector Association="MyShoeStoreModel.DetailsExport" ManuallyRouted="false" />
+        <AssociationConnector Association="MyShoeStoreModel.DetailsImport" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

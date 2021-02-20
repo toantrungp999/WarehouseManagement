@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="ManagerWarehouses.GUI.UCWarehousingDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ManagerWarehouses.GUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="640" d:DesignWidth="850">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <TextBlock Height="32" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0"  Text="Chi tiết nhập kho" FontSize="24" FontStretch="ExtraCondensed" ></TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Thông tin nhập kho:" Margin="20,70,0,0" ></TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Mã nhân viên:" Margin="20,120,0,0" ></TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Ghi chú:" Margin="20,180,0,0" ></TextBlock>
+        <TextBox Height="23" IsReadOnly="True" Width="100" Name="_txtEmployee_id" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,120,0,0"></TextBox>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Tên nhân viên:" Margin="300,120,0,0" ></TextBlock>
+        <TextBox Height="23" IsReadOnly="True" Width="100" Name="_txtFullName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,120,0,0"></TextBox>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Ngày" Margin="600,120,0,0" ></TextBlock>
+        <TextBox MaxLength="5" IsReadOnly="True" Height="23" Width="100" Name="_txtDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,120,0,0"></TextBox>
+        <TextBox MaxLength="5" IsReadOnly="True" Height="60" Width="620" Name="_txtNote" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,160,0,0"></TextBox>
+        <DataGrid  HorizontalScrollBarVisibility="Disabled" Margin="140,250,140,0" HorizontalAlignment="Center" VerticalAlignment="Top" AutoGenerateColumns="False" Name="_dataGridListShoes" Height="300" Width="570" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Shoes_ID}" Width="100" Header="Mã giày" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding ModelShoes_ID}" Width="170" Header="Mã mẫu" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Color}" Width="100" Header="Màu" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Size}" Width="100" Header="Cỡ" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Amount}" Width="100" Header="Số lượng" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,580,0,0" Text="Ghi chú"></TextBlock>
+        <TextBox Height="40" Width="180" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,570,0,0" Name="_txtNoteDelete"></TextBox>
+        <Button Name="_btnDelete"  Height="23" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="560,580,0,0" Content="Xóa bảng nhập này" Click="_btnDelete_Click"></Button>
+
+    </Grid>
+</UserControl>

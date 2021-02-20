@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="ManagerWarehouses.GUI.UCManagerModel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ManagerWarehouses.GUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="640" d:DesignWidth="850">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <TextBlock Height="32" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,25,0,0"  Text="Quản lý mẫu giày" FontSize="24" FontStretch="ExtraCondensed" ></TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Thêm mới, chỉnh sửa mẫu giày:" Margin="20,70,0,0" ></TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Mẫu giày:" Margin="20,120,0,0" ></TextBlock>
+        <TextBox Height="23" Width="160" Name="_txtName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,120,0,0"></TextBox>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Loại giày:" Margin="300,120,0,0" ></TextBlock>
+        <ComboBox Height="23" Width="160" Name="_cbType" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="360,120,0,0"></ComboBox>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Hãng giày:" Margin="540,120,0,0" ></TextBlock>
+        <ComboBox Height="23" Width="160" Name="_cbCompany" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="610,120,0,0"></ComboBox>
+        <Button Name="_btnAddNew"  Height="23" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,180,0,0" Content="Thêm mới mẫu" Click="_btnAddNewModel_Click"></Button>
+        <Button  Name="_btnUpdate"  Height="23" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="470,180,0,0" Content="Cập nhật mẫu" Click="_btnUpdateModel_Click"></Button>
+        <TextBlock Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Danh sách các mẫu giày:" Margin="20,210,0,0" ></TextBlock>
+        <DataGrid HorizontalScrollBarVisibility="Disabled" Margin="100,250,100,0" VerticalAlignment="Top" AutoGenerateColumns="False" Name="_dataGridModelShoes" Height="300" Width="650" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Delete">Xóa</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding ModelShoes_ID}" Width="100" Header="Mã mẫu" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding NameShoese}" Width="170" Header="Tên mẫu" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding TypeName}" Width="150" Header="Tên loại" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding CompanyName}" Width="150" Header="Tên công ty" IsReadOnly="True"/>
+               
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>
